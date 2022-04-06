@@ -4,7 +4,7 @@ using namespace std;
 
 int main() {
 	int n, a, b, c;
-	int p=0;
+	long long p=0;
 	cin >> n;
 	vector <int> v;
 	for (int i = 0; i < n; i++) {
@@ -16,13 +16,21 @@ int main() {
 	p += n;
 
 	for (int i = 0; i < n; i++) {
-		int temp = v[i] - b;
-		if (temp % c == 0) {
-			p+=temp / c;
+		int temp;
+
+		if (v[i] >= b) {
+			temp = v[i] - b;
+			if (temp % c == 0) {
+				p += temp / c;
+			}
+			else {
+				p += temp / c + 1;
+			}
 		}
 		else {
-			p += temp / c + 1;
+			continue;
 		}
+		
 	}
 
 	cout << p;

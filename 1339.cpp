@@ -55,6 +55,7 @@ int wordmath() {
 		int m =pq.top().first;
 		pq.pop();
 		sum += m* cnt;
+		cnt--;
 	}
 	return sum;
 }

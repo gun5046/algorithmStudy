@@ -1,5 +1,0 @@
-﻿  16172.cpp
-C:\Users\gun50\Desktop\학교\알고리즘\16172.cpp(23,21): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\gun50\Desktop\학교\알고리즘\16172.cpp(24,23): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\gun50\Desktop\학교\알고리즘\16172.cpp(48,22): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  알고리즘.vcxproj -> C:\Users\gun50\Desktop\학교\알고리즘\x64\Debug\알고리즘.exe

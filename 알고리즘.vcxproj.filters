@@ -33,5 +33,20 @@
     <ClCompile Include="16172.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="7575.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="2021_kakao_blind_recruitment_2.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="2021_kakao_blind_recruitment_3.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="크레인인형뽑기게임.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="튜플.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

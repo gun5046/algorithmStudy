@@ -2,7 +2,7 @@ x64/
 .vs/
 .sln
 Debug/
-.vcxproj
-.vcxproj
-.vcxproj.filters
-.vcxproj.user
+*.vcxproj
+*.vcxproj
+*.vcxproj.filters
+*.vcxproj.user

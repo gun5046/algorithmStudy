@@ -2,39 +2,43 @@
 #include <utility>
 #include <queue>
 
-#define INF 99999;
+#define INF 99999999
 using namespace std;
 
 int dis[20001];
 int min_dis=INF;
 
 vector<pair<int, int>> route[20001];
-priority_queue<pair<int,int>> pq;
+priority_queue<pair<int,int>, vector<pair<int,int>>, greater<pair<int,int>>> pq;
 void daijkstra() {
-	int from = pq.top().second;
-	int distance = pq.top().first;
 	
-	if (pq.size()!=0) {
+	while (!pq.empty()) {
+		int from = pq.top().second;
+		int dist = pq.top().first;
+
 		pq.pop();
 		for (int i = 0; i < route[from].size(); i++) {
-			if (distance - route[from][i].first > dis[route[from][i].second]) {
-				dis[route[from][i].second] = distance - route[from][i].first;
-				pq.push(make_pair(dis[route[from][i].second], route[from][i].second));
-				if (i == route[from].size() - 1) {
-					daijkstra();
-				}
+			int to = route[from][i].second;
+			int ndist = route[from][i].first;
+			if (dist + ndist < dis[to]) {
+				
+				dis[to] = dist + ndist;
+				pq.push({dis[to], to});
+				
 			}
 		}
 	}
 }
 
+
 int main() {
 	int v, e, start;
 	int from, to, road;
-	for (int i = 1; i < 9; i++) {
-		dis[i] = -INF;
-	}
+	
 	cin >> v >> e >> start;
+	for (int i = 1; i <= v; i++) {
+		dis[i] = INF;
+	}
 	dis[start] = 0;
 	for (int i = 0; i < e; i++) {
 		cin >> from >> to >> road;
@@ -44,11 +48,11 @@ int main() {
 	daijkstra();
 
 	for (int i = 1; i <= v; i++) {
-		if (dis[i] == -99999) {
+		if (dis[i] == INF) {
 			cout << "INF" << "\n";
 		}
 		else {
-			cout << -dis[i] << "\n";
+			cout << dis[i] << "\n";
 		}
 	}
 }

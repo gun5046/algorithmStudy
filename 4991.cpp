@@ -53,21 +53,22 @@ void robotCleaner(int start_x, int start_y, int c) {
 		x = q.front().second.first;
 		y = q.front().second.second;
 		q.pop();
-		if (box[x][y] == '*') {
-			for (int i = 0; i < v.size(); i++) {
-				if (v[i] == make_pair(x,y)) {
-					dis[c].push_back(cnt);
-					dis[i].push_back(cnt);
-					box[x][y] = '.';
-				}
-			}
-		}
+		
 		for (int i = 0; i < 4; i++) {
 			int next_x = x + dx[i]; int next_y = y + dy[i];
 
 			if (next_x<1 || next_x>h || next_y<1 || next_y>w) continue;
 			if (box[next_x][next_y] == 'x') continue;
 			if (visited[next_x][next_y]) continue;
+			if (box[next_x][next_y] == '*') {
+				for (int i = 0; i < v.size(); i++) {
+					if (v[i] == make_pair(next_x, next_y)) {
+						dis[c].push_back(cnt);
+						dis[i].push_back(cnt);
+						box[x][y] = '.';
+					}
+				}
+			}
 			q.push({cnt+1, { next_x, next_y }});
 			visited[next_x][next_y] = true;
 		}
@@ -99,7 +100,7 @@ int main() {
 	while(1){
 		cin >> w >> h;
 		if (w == 0 && h == 0) break;
-		v.push_back({});
+		v.push_back({0,0});
 		for (int j = 0; j < h; j++) {
 			cin >> str;
 			for (int k = 0; k < str.size(); k++) {

@@ -41,13 +41,13 @@ vector<int>kmp(string s, string pattern) {
 vector<int>fail(string p) {
 	int size = p.size();
 	vector<int>pi(size);
-	
+
 	for (int i = 1, j = 0; i < size; i++) {
 		while (j > 0 && p[i] != p[j]) {
-			j = pi[j-1];
+			j = pi[j - 1];
 		}
 		if (p[i] == p[j]) {
-			pi[i]=++j;
+			pi[i] = ++j;
 		}
 	}
 

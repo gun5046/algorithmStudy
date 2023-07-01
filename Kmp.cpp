@@ -1,53 +1,65 @@
 #include <iostream>
 #include <vector>
+#include <queue>
+#include <map>
+#include <algorithm>
+#include <utility>
+#include <unordered_map>
+#include <unordered_set>
+#include <math.h>
+#include <sstream>
+#include <cstring>
+#include <string>
+#include <set>
+#include <stack>
 
 using namespace std;
-string s;
-string c;
-vector<int>Fail(string pattern);
-vector<int>KMP(string pattern, string text);
-int main() {
-	cin >> s >> c;
-	vector<int>answer = KMP(s, c);
-	for (int a : answer) {
-		cout << a;
-	}
-}
 
-vector <int> KMP(string pattern, string text) {
-	int m = pattern.length();
-	int n = text.length();
-
-	vector<int>pos; // 검색에 성공한 위치 position에 저장
-	vector<int>pi = Fail(pattern); //pi 배열 구하기
-
-	for (int i = 0, j=0; i < n; i++) {
-		while (j>0 && text[i] != pattern[j])
-		{
+vector<int>findPattern(string p) {
+	int size = p.size();
+	vector<int>pi(size);
+	
+	for (int i = 1, j = 0; i < size; i++) {
+		while (j > 0 && p[i] != p[j]) {
 			j = pi[j - 1];
 		}
-		if (text[i] == pattern[j]) {
-			if (j == m - 1) {
-				pos.push_back(i - m + 1);
-				j = pi[j];
-			}
-			else j++;
-		}
-	}
-	return pos;
-}
-
-vector<int> Fail(string pattern) {
-	int m = pattern.length();
-	vector<int>pi(m);
-	string check = pattern;
-	for (int i = 1 , j = 0; i < m; i++) {
-		while (j > 0 && pattern[i] != check[j]) {
-			j = pi[j - 1];
-		}
-		if (pattern[i] == check[j]) {
+		if (p[i] == p[j]) {
 			pi[i] = ++j;
 		}
 	}
 	return pi;
+}
+int c;
+vector<int>kmp(string s, string p) {
+	vector<int>ans;
+	int cnt = 0;
+	vector<int>pi = findPattern(p);
+	int ssize = s.size();
+	int psize = p.size();
+	for (int i = 0, j = 0; i < ssize; i++) {
+		while (j>0 && s[i] != p[j]) {
+			j = pi[j - 1];
+		}
+		if (s[i] == p[j]) {
+			if (j == psize - 1) {
+				ans.push_back(i-psize+1);
+				cnt++;
+				j = pi[j];
+			}
+			else {
+				j++;
+			}
+		}
+	}
+	c = cnt;
+	return ans;
+}
+int main() {
+	string s, p;
+	cin >> s >> p;
+	vector<int> ans = kmp(s, p);
+	for (int i : ans) {
+		cout << i << "\n";
+	}
+	cout << c;
 }

@@ -552,6 +552,15 @@
     <ClCompile Include="14442.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="10942.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="3584.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="14658.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="README.md">

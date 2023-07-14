@@ -44,7 +44,7 @@ int main(){
 			int nx;
 			if (i==2) {
 				nx = loc * 2;
-				if (nx <= 0 || nx > 100000) continue;
+				if (nx < 0 || nx > 100000) continue;
 				if (dis[nx] <= dis[loc]) continue;
 				dis[nx] = dis[loc];
 
@@ -52,7 +52,7 @@ int main(){
 			else {
 				nx = loc + dx[i];
 
-				if (nx <= 0 || nx > 100000) continue;
+				if (nx < 0 || nx > 100000) continue;
 				if (dis[nx] <= dis[loc] + 1) continue;
 
 				dis[nx] = dis[loc] + 1;

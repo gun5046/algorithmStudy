@@ -576,6 +576,18 @@
     <ClCompile Include="12919.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="20055.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="2023KakaoBlind-1.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="2023KakaoBlind-3.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="2023KakaoBlind-4.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="README.md">

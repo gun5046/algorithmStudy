@@ -15,7 +15,7 @@ void dfs(int v) { //¿Á±Õ or Ω∫≈√
 	visitedDfs[v] = true;
 	int size = vt[v].size();
 	for (int i = 0; i < size; i++) {
-		int next = -vt[v].top();
+		int next = -vt[v].top()£ª
 		vt[v].pop();
 		if (!visitedDfs[next]) {
 			dfs(next);

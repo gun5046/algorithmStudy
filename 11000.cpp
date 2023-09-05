@@ -14,17 +14,44 @@
 #include <stack>
 
 using namespace std;
+vector<pair<int ,int>>v;
+bool compare(pair<int ,int > p1, pair<int,int> p2) {
+	if (p1.first == p2.first) {
+		return p1.second < p2.second;
+	}
+	return p1.first < p2.first;
+}
 
+priority_queue<int>pq;
+int cnt = 0;
 int main() {
 	int n, num1, num2;
 	cin >> n;
-	set<pair<int,int>>s;
-	int back=0, room =1;
 	for (int i = 0; i < n; i++) {
-		cin >> num1 >> num2;
-		s.insert({num1, num2});
+		cin >> num1;
+		cin >> num2;
+		v.push_back({ num1, num2 });
 	}
-	set<pair<int, int>>::iterator iter;
+
+	sort(v.begin(), v.end(), compare);
+	//for (int i = 0; i < v.size(); i++) {
+		//cout << v[i].first << " " << v[i].second << "\n";
+	//}
 	
-	cout << room;
+	for (int i = 0; i < n; i++) {
+		while (!pq.empty()) {
+			if (v[i].first >= -pq.top()) {
+				pq.pop();
+			}
+			else {
+				break;
+			}
+		}
+		pq.push(-v[i].second);
+		int a = pq.size();
+		cnt = max(a, cnt);
+	}
+
+	cout << cnt;
+
 }

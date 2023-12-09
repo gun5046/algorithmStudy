@@ -159,6 +159,14 @@ void permutation(int depth) { // check �迭 �ʿ� O, 0���� ���
 	}
 }
 
+void subs() {
+
+	for (int i = 0; i < 5; i++) {
+		
+	}
+}
+
+
 int main() {
 	memset(check, 0, sizeof(check));
 	//permutation(0);

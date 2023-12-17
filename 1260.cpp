@@ -10,12 +10,12 @@ bool visitedBfs[1001] = { false, };
 priority_queue <int> vt[1001];
 priority_queue<int> vt1[1001];
 queue <int> q;
-void dfs(int v) { //Àç±Í or ½ºÅÃ
+void dfs(int v) { //ï¿½ï¿½ï¿½ or ï¿½ï¿½ï¿½ï¿½
 	cout << v << " ";
 	visitedDfs[v] = true;
 	int size = vt[v].size();
 	for (int i = 0; i < size; i++) {
-		int next = -vt[v].top()£»
+		int next = -vt[v].top()ï¿½ï¿½
 		vt[v].pop();
 		if (!visitedDfs[next]) {
 			dfs(next);

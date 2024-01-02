@@ -22,10 +22,9 @@ int m, n;
 int main() {
 	cin >> m >> n;
 	for (int i = 0; i < n; i++) {
-		for (int j = 0; j < 2 * m - 1; j++) {
-			int grow;
-			cin >> grow;
+		int n0, n1, n2;
 
-		}
+		cin >> n0 >> n1 >> n2;
+
 	}
 }
